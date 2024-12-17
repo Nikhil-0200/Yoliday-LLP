@@ -11,6 +11,8 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/16/solid";
 // import {BellIcon, XMarkIcon } from '@heroicons/react'
 
 import classNames from "classnames";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import MobileNav from "./MobileNav";
 
 const user = {
   name: "Tom Cook",
@@ -18,12 +20,7 @@ const user = {
   imageUrl:
     "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
 };
-const navigation = [
-  { name: "Project", href: "#", current: true },
-  { name: "Saved", href: "#", current: false },
-  { name: "Shared", href: "#", current: false },
-  { name: "Achievment", href: "#", current: false },
-];
+
 const userNavigation = [
   { name: "Your Profile", href: "#" },
   { name: "Settings", href: "#" },
@@ -31,53 +28,101 @@ const userNavigation = [
 ];
 
 export const InnerNav = () => {
+  const location = useLocation();
+
+  const navigation = [
+    { name: "Project", href: "", current: location.pathname === "/portfolio" },
+    {
+      name: "Saved",
+      href: "saved",
+      current: location.pathname === "/portfolio/saved",
+    },
+    {
+      name: "Shared",
+      href: "shared",
+      current: location.pathname === "/portfolio/shared",
+    },
+    {
+      name: "Achievement",
+      href: "achievement",
+      current: location.pathname === "/portfolio/achievement",
+    },
+  ];
+
   return (
     <>
       <div className="min-h-full">
         <Disclosure as="nav" className="bg-[#FFFFFF]">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex h-20 items-center justify-between">
-              <div className="flex-col items-center w-[50%] ">
-                <div className="text-[Portfolio] font-roboto font-semibold text-[22px]">
-                  Portfolio
+          <div className="mx-auto max-w-full max-md:px-0 px-4 max-md:pl-0 sm:px-0 lg:px-0">
+            <div className="lg:flex lg:flex-row lg:justify-around lg:h-20 items-center justify-between">
+              <div className="flex-col items-center lg:w-[50%] max-lg:mb-5">
+                <div className="text-[Portfolio] font-roboto font-semibold text-[22px] max-md:p-[12px] flex items-center justify-between max-md:h-24">
+                  <h1>Portfolio</h1>
+                  <div className="max-md:flex hidden gap-10">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 16 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M14 4H12C12 1.79 10.21 0 8 0C5.79 0 4 1.79 4 4H2C0.9 4 0 4.9 0 6V18C0 19.1 0.9 20 2 20H14C15.1 20 16 19.1 16 18V6C16 4.9 15.1 4 14 4ZM6 8C6 8.55 5.55 9 5 9C4.45 9 4 8.55 4 8V6H6V8ZM8 2C9.1 2 10 2.9 10 4H6C6 2.9 6.9 2 8 2ZM12 8C12 8.55 11.55 9 11 9C10.45 9 10 8.55 10 8V6H12V8Z"
+                        fill="#DF5532"
+                      />
+                    </svg>
+
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 16 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8 20C9.1 20 10 19.1 10 18H6C6 18.5304 6.21071 19.0391 6.58579 19.4142C6.96086 19.7893 7.46957 20 8 20ZM14 14V9C14 5.93 12.36 3.36 9.5 2.68V2C9.5 1.17 8.83 0.5 8 0.5C7.17 0.5 6.5 1.17 6.5 2V2.68C3.63 3.36 2 5.92 2 9V14L0 16V17H16V16L14 14Z"
+                        fill="#DF5532"
+                      />
+                    </svg>
+                  </div>
                 </div>
-                <div className="hidden md:block">
-                  <div className="ml-0 flex items-baseline space-x-4 font-roboto border-b-2 ">
+                <div className="">
+                  <div className="ml-0 flex max-md:justify-center items-baseline font-roboto border-b-[1px]">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.href}
                         aria-current={item.current ? "page" : undefined}
                         className={classNames(
                           item.current
                             ? "border-b-[3px] border-[#DF5532] text-[#DF5532]"
                             : "text-[#303030]",
-                          "px-3 py-2 text-[14px] font-normal"
+                          "max-md:px-2 px-5 py-2 text-[14px] font-normal max-md:w-[100%] max-md:text-center"
                         )}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
               </div>
-              <div className="hidden md:block w-[50%]">
-                <div className="ml-4 flex items-center justify-end">
+              <div className=" md:block lg:w-[50%] lg:flex lg:justify-around max-md:px-4">
+                <div className="lg:ml-4 flex items-center lg:justify-end lg:w-full gap-6">
                   <button
                     type="button"
-                    className="relative p-1 text-[#303030] hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 flex text-[16px] items-center gap-[4px]"
+                    className="relative p-1 text-[#303030] lg:flex text-[16px] items-center gap-[4px] hidden"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="solid"
                       viewBox="0 0 24 24"
-                      stroke-width="0.1"
+                      strokeWidth="0.1"
                       stroke="black"
-                      class="size-5"
+                      className="size-5"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z"
                       />
                     </svg>
@@ -85,7 +130,7 @@ export const InnerNav = () => {
                   </button>
 
                   {/* Input Tag */}
-                  <div>
+                  <div className="lg:w-[75%] w-full">
                     <form className="max-w-xl mx-auto">
                       <label
                         htmlFor="default-search"
@@ -127,16 +172,10 @@ export const InnerNav = () => {
           </div>
         </Disclosure>
 
-        <header className="bg-white shadow">
-          <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-              Dashboard
-            </h1>
-          </div>
-        </header>
-        <main>
-          <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-            {/* Your content */}
+        <main className="bg-white">
+          <div className="mx-auto max-w-full px-4 py-6 sm:px-0 lg:px-0">
+            <Outlet />
+            <MobileNav/>
           </div>
         </main>
       </div>

@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import { InnerNav } from "../components/InnerNav";
 
 const Portfolio = () =>{

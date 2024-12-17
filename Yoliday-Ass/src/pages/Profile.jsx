@@ -1,7 +1,9 @@
+import { InnerNav } from "../components/InnerNav";
+
 const Profile = () =>{
     return(
         <div>
-            This is Profile Page.
+            <InnerNav/>
         </div>
     )
 }

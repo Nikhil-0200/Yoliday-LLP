@@ -1,7 +1,9 @@
+import { InnerNav } from "../components/InnerNav";
+
 const Inputs = () =>{
     return(
         <div>
-            This is Inputs Page.
+            <InnerNav/>
         </div>
     )
 }
