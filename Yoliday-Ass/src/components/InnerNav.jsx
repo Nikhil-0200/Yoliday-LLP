@@ -12,7 +12,6 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/16/solid";
 
 import classNames from "classnames";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import MobileNav from "./MobileNav";
 
 const user = {
   name: "Tom Cook",
@@ -27,7 +26,7 @@ const userNavigation = [
   { name: "Sign out", href: "#" },
 ];
 
-export const InnerNav = () => {
+export const InnerNav = ({title}) => {
   const location = useLocation();
 
   const navigation = [
@@ -56,8 +55,8 @@ export const InnerNav = () => {
           <div className="mx-auto max-w-full max-md:px-0 px-4 max-md:pl-0 sm:px-0 lg:px-0">
             <div className="lg:flex lg:flex-row lg:justify-around lg:h-20 items-center justify-between">
               <div className="flex-col items-center lg:w-[50%] max-lg:mb-5">
-                <div className="text-[Portfolio] font-roboto font-semibold text-[22px] max-md:p-[12px] flex items-center justify-between max-md:h-24">
-                  <h1>Portfolio</h1>
+                <div className="text-[Portfolio] font-roboto font-semibold text-[22px] max-md:p-[12px] flex items-center justify-between max-md:h-20">
+                  <h1>{title}</h1>
                   <div className="max-md:flex hidden gap-10">
                     <svg
                       width="24"
@@ -175,7 +174,6 @@ export const InnerNav = () => {
         <main className="bg-white">
           <div className="mx-auto max-w-full px-4 py-6 sm:px-0 lg:px-0">
             <Outlet />
-            <MobileNav/>
           </div>
         </main>
       </div>

@@ -4,7 +4,7 @@ import { InnerNav } from "../components/InnerNav";
 const Portfolio = () =>{
     return(
         <div>
-          <InnerNav/>
+          <InnerNav title="Portfolio" />
         </div>
     )
 }

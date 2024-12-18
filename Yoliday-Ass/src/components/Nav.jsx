@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import { dashboardIcon, Vector } from "../assets/icons";
-import Portfolio from "../pages/Portfolio";
 import AllRoutes from "./AllRoutes";
 
 const Nav = () => {
@@ -33,33 +31,65 @@ const Nav = () => {
                     />
                   </svg>
                 </button>
-                {/* <a href="https://flowbite.com" className="flex ms-2 md:me-24">
-                  <img
-                    src="https://flowbite.com/docs/images/logo.svg"
-                    className="h-8 me-3"
-                    alt="FlowBite Logo"
-                  />
-                  <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
-                    Flowbite
-                  </span>
-                </a> */}
               </div>
               <div className="flex items-center">
                 <div className="flex items-center ms-3">
-                  <div>
-                    <button
+                  <div className="flex items-center gap-4">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 22"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11.73 20C11.5544 20.3033 11.3021 20.5552 10.9985 20.7302C10.6948 20.9053 10.3505 20.9974 10 20.9974C9.6495 20.9974 9.30517 20.9053 9.00152 20.7302C8.69788 20.5552 8.44561 20.3033 8.27 20M16 7.4C16 5.703 15.368 4.075 14.243 2.875C13.117 1.675 11.59 1 10 1C8.409 1 6.883 1.674 5.757 2.875C4.632 4.075 4 5.703 4 7.4C4 14.867 1 17 1 17H19C19 17 16 14.867 16 7.4Z"
+                        stroke="#303030"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+
+                    <div></div>
+                    <div
                       type="button"
                       className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                       aria-expanded="false"
                       data-dropdown-toggle="dropdown-user"
                     >
                       <span className="sr-only">Open user menu</span>
+
                       <img
                         className="w-8 h-8 rounded-full"
                         src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
                         alt="user photo"
                       />
-                    </button>
+                    </div>
+
+                    <div className="flex gap-4">
+                      <span className="font-roboto text-sm">
+                      <p className="font-semibold text-[#303030]">Lorem Ips</p>
+                      <p className="font-normal text-[#848484]">Manager</p>
+                    </span>
+
+                    <div className="pt-2">
+                      <svg
+                        width="10"
+                        height="6"
+                        viewBox="0 0 10 6"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M4.80655 5.77L1.09155 1.312C0.994231 1.19516 0.932226 1.053 0.912803 0.902185C0.89338 0.751368 0.917343 0.598139 0.981883 0.460453C1.04642 0.322767 1.14887 0.206326 1.27721 0.124776C1.40556 0.0432255 1.55449 -5.69899e-05 1.70655 5.63173e-08H8.29055C8.44253 0.000132974 8.59132 0.0435533 8.71952 0.125178C8.84772 0.206803 8.95001 0.323256 9.01443 0.460905C9.07885 0.598555 9.10273 0.751706 9.08327 0.902433C9.06381 1.05316 9.00182 1.19522 8.90455 1.312L5.19055 5.77C5.16709 5.79814 5.13773 5.82077 5.10455 5.8363C5.07137 5.85184 5.03518 5.85989 4.99855 5.85989C4.96192 5.85989 4.92573 5.85184 4.89255 5.8363C4.85937 5.82077 4.83001 5.79814 4.80655 5.77Z"
+                          fill="#303030"
+                        />
+                      </svg>
+                    </div>
+                    </div>
+
+                    
                   </div>
                   <div
                     className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
@@ -252,7 +282,7 @@ const Nav = () => {
         </aside>
         <div className="max-md:p-0 p-6 sm:ml-64 bg-[#F5F5F5]">
           <div className="max-md:p-0 p-4 border-gray-200 rounded-2xl bg-white dark:border-gray-700 max-md:mt-0 mt-14 ">
-          <AllRoutes/>
+            <AllRoutes />
           </div>
         </div>
       </>
